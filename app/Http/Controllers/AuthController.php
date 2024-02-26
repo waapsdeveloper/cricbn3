@@ -18,6 +18,7 @@ class AuthController extends Controller
     {
 
         $data = $request->all();
+        // dd("hello");
 
         $validator = Validator::make($data, [
             'name' => 'required|string|max:255',
@@ -41,7 +42,6 @@ class AuthController extends Controller
         $user = User::create($obj);
         $token = $user->createToken('crickbn3')->accessToken;
 
-        $user = new ApiUserResource($user);
         $response = [
             'token' => $token,
             'user' => $user,
@@ -67,7 +67,6 @@ class AuthController extends Controller
             $user = Auth::user();
             $token = $user->createToken('crickbn3')->accessToken;
 
-            $user = new ApiUserResource($user);
             $response = [
                 'token' => $token,
                 'user' => $user,
