@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\AllMatchController;
+use App\Http\Controllers\AllTeamController;
 use App\Http\Controllers\AuthController;
 
 
@@ -55,4 +56,20 @@ Route::group(['prefix' => 'all-matches'], function () {
 
     // Destroy - Remove the specified tournament from the database
     Route::delete('/{id}', [AllMatchController::class, 'destroy']);
+});
+
+
+
+Route::group(['prefix' => 'all-teams'], function () {
+    // Index - List all tournaments
+    Route::get('/', [AllTeamController::class, 'index']);
+
+    // Store - Store a newly created tournament in the database
+    Route::post('/', [AllTeamController::class, 'store']);
+
+    // Update - Update the specified tournament in the database
+    Route::put('/{id}', [AllTeamController::class, 'update']);
+
+    // Destroy - Remove the specified tournament from the database
+    Route::delete('/{id}', [AllTeamController::class, 'destroy']);
 });
