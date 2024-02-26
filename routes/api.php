@@ -43,7 +43,7 @@ Route::group(['prefix' => 'tournaments'], function () {
 
 
 
-Route::group(['prefix' => 'matches'], function () {
+Route::group(['prefix' => 'all-matches'], function () {
     // Index - List all tournaments
     Route::get('/', [AllMatchController::class, 'index']);
 
