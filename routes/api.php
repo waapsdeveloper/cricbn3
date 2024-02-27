@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 
 use App\Http\Controllers\SquadController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\CountryController;
 
 
 /*
@@ -45,6 +46,16 @@ Route::group(['prefix' => 'teams'], function () {
     Route::post('/{id}', [TeamController::class, 'update']);
     Route::delete('/{id}', [TeamController::class, 'destroy']);
 });
+
+
+
+Route::group(['prefix' => 'countries'], function () {
+    Route::get('/', [CountryController::class, 'index']);
+    Route::post('/', [CountryController::class, 'store']);
+    Route::post('/{id}', [CountryController::class, 'update']);
+    Route::delete('/{id}', [CountryController::class, 'destroy']);
+});
+
 
 
 
