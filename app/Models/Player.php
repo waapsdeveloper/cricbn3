@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Models\Permission;
 
-class Country extends Model
+class Player extends Model
 {
     use HasFactory;
     /**
@@ -16,9 +16,12 @@ class Country extends Model
      */
     protected $fillable = [
         'name',
+        'country_id',
+        'jersey_number'
     ];
-    public function players()
+
+    public function country()
     {
-        return $this->hasMany(Player::class);
+        return $this->belongsTo(Country::class);
     }
 }
