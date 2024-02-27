@@ -38,7 +38,7 @@ class TeamController extends Controller
 
         $teams = Team::create([
             'name' => $request->input('name'),
-            'naplayer_idme' => $request->input('player_id'),
+            'player_id' => $request->input('player_id'),
             'logo' => $request->input('logo'),
             'location' => $request->input('location'),
             'established_date' => $request->input('established_date'),
