@@ -16,10 +16,16 @@ class Team extends Model
      */
     protected $fillable = [
         'name',
+        'player_id',
         'logo',
         'location',
         'established_date',
         'home_venue',
         'coach'
     ];
+
+    public function players()
+    {
+        return $this->hasMany(Player::class);
+    }
 }

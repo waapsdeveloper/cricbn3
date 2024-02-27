@@ -12,7 +12,7 @@ class TeamController extends Controller
 
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::with('player')->get();
         return $this->success('Teams retrieved successfully', ['data' => $teams]);
     }
 
@@ -22,6 +22,7 @@ class TeamController extends Controller
         // Validate the request
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
+            'player_id' => 'required|exists:player,id',
             'logo' => 'required|string',
             'location' => 'required|string',
             'established_date' => 'required|date',
@@ -37,6 +38,7 @@ class TeamController extends Controller
 
         $teams = Team::create([
             'name' => $request->input('name'),
+            'naplayer_idme' => $request->input('player_id'),
             'logo' => $request->input('logo'),
             'location' => $request->input('location'),
             'established_date' => $request->input('established_date'),
@@ -61,6 +63,7 @@ class TeamController extends Controller
 
         $validator = Validator::make($data, [
             'name' => 'required|string',
+            'player_id' => 'required|exists:player,id',
             'logo' => 'required|string',
             'location' => 'required|string',
             'established_date' => 'required|date',
@@ -74,6 +77,7 @@ class TeamController extends Controller
 
         $teams->update([
             'name' => $data['name'],
+            'player_id' => $data['player_id'],
             'logo' => $data['logo'],
             'location' => $data['location'],
             'established_date' => $data['established_date'],
