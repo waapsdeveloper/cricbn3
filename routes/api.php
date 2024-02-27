@@ -10,6 +10,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TeamPlayerController;
+use App\Http\Controllers\TournamentController;
 
 
 /*
@@ -79,5 +80,10 @@ Route::group(['prefix' => 'teamplayers'], function () {
 
 
 
-
+Route::group(['prefix' => 'tournaments'], function () {
+    Route::get('/', [TournamentController::class, 'index']);
+    Route::post('/', [TournamentController::class, 'store']);
+    Route::post('/{id}', [TournamentController::class, 'update']);
+    Route::delete('/{id}', [TournamentController::class, 'destroy']);
+});
 
