@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Models\Permission;
 
-class Tournament extends Model
+class Squad extends Model
 {
     use HasFactory;
     /**
@@ -16,13 +16,10 @@ class Tournament extends Model
      */
     protected $fillable = [
         'name',
-        'location',
-        'organizer',
-        'team',
-        'schedule',
-        'prize',
-        'status',
-        'start_date',
-        'end_date',
+        'player_type',
+        'jersey_number',
+        'date_of_birth',
+        'height',
+        'weight'
     ];
 }
