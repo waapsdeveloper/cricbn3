@@ -12,7 +12,7 @@ class TeamController extends Controller
 
     public function index()
     {
-        $teams = Team::with('player')->get();
+        $teams = Team::with('players')->get();
         return $this->success('Teams retrieved successfully', ['data' => $teams]);
     }
 
