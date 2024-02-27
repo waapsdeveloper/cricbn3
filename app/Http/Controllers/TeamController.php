@@ -22,7 +22,7 @@ class TeamController extends Controller
         // Validate the request
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'player_id' => 'required|exists:player,id',
+            'player_id' => 'required|exists:players,id',
             'logo' => 'required|string',
             'location' => 'required|string',
             'established_date' => 'required|date',
@@ -63,7 +63,7 @@ class TeamController extends Controller
 
         $validator = Validator::make($data, [
             'name' => 'required|string',
-            'player_id' => 'required|exists:player,id',
+            'player_id' => 'required|exists:players,id',
             'logo' => 'required|string',
             'location' => 'required|string',
             'established_date' => 'required|date',
