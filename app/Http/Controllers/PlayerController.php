@@ -12,7 +12,7 @@ class PlayerController extends Controller
 
     public function index()
     {
-        $players = Player::all();
+        $players = Player::with('country')->get();
         return $this->success('Players retrieved successfully', ['data' => $players]);
     }
 
