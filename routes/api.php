@@ -29,7 +29,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => 'squads'], function () {
     Route::get('/', [SquadController::class, 'index']);
     Route::post('/', [SquadController::class, 'store']);
-    Route::put('/{id}', [SquadController::class, 'update']);
+    Route::post('/{id}', [SquadController::class, 'update']);
     Route::delete('/{id}', [SquadController::class, 'destroy']);
 });
 
