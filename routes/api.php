@@ -2,8 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SquadController;
 use App\Http\Controllers\AuthController;
+
+
+use App\Http\Controllers\SquadController;
+use App\Http\Controllers\TeamController;
 
 
 /*
@@ -31,6 +34,16 @@ Route::group(['prefix' => 'squads'], function () {
     Route::post('/', [SquadController::class, 'store']);
     Route::post('/{id}', [SquadController::class, 'update']);
     Route::delete('/{id}', [SquadController::class, 'destroy']);
+});
+
+
+
+
+Route::group(['prefix' => 'teams'], function () {
+    Route::get('/', [TeamController::class, 'index']);
+    Route::post('/', [TeamController::class, 'store']);
+    Route::post('/{id}', [TeamController::class, 'update']);
+    Route::delete('/{id}', [TeamController::class, 'destroy']);
 });
 
 
