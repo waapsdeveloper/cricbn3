@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Models\Permission;
 
-class Team extends Model
+class TeamPlayer extends Model
 {
     use HasFactory;
     /**
@@ -15,12 +15,17 @@ class Team extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'logo',
-        'location',
-        'established_date',
-        'home_venue',
-        'coach'
+        'team_id',
+        'player_id'
     ];
-    
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id');
+    }
+
+    public function player()
+    {
+        return $this->belongsTo(Player::class, 'player_id');
+    }
 }

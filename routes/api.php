@@ -9,6 +9,7 @@ use App\Http\Controllers\SquadController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\TeamPlayerController;
 
 
 /*
@@ -66,6 +67,14 @@ Route::group(['prefix' => 'players'], function () {
     Route::delete('/{id}', [PlayerController::class, 'destroy']);
 });
 
+
+
+Route::group(['prefix' => 'teamplayers'], function () {
+    Route::get('/', [TeamPlayerController::class, 'index']);
+    Route::post('/', [TeamPlayerController::class, 'store']);
+    Route::post('/{id}', [TeamPlayerController::class, 'update']);
+    Route::delete('/{id}', [TeamPlayerController::class, 'destroy']);
+});
 
 
 
