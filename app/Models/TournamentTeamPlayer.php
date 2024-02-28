@@ -21,11 +21,11 @@ class TournamentTeamPlayer extends Model
 
     public function team()
     {
-        return $this->belongsTo(TournamentTeam::class, 'team_id');
+        return $this->belongsTo(TournamentTeam::class, 'tournament_team_id');
     }
 
     public function player()
     {
-        return $this->belongsTo(TournamentPlayer::class, 'player_id');
+        return $this->belongsTo(TournamentPlayer::class, 'tournament_player_id');
     }
 }
