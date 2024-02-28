@@ -11,7 +11,7 @@ class MatchhController extends Controller
 {
     Public function index()
 {
-    $matches = Matchh::with('team1', 'team2')->get();
+    $matches = Matchh::with(['team1', 'team2', 'flag1', 'flag2'])->get();
     return $this->success('Matches retrieved successfully', ['data' => $matches]);
 }
 

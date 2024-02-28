@@ -1,11 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MobileApi\DashboardHomeController;
+
+
+Route::get('test', function(){
+    return "F";
+});
 
 Route::prefix('dashboard')->group(function () {
 
     Route::prefix('home')->group(function () {
-        Route::get('/matches', 'DashboardHomeController@matches');
+        Route::get('/matches', [DashboardHomeController::class, 'matches']);
+        Route::get('/upcommingmatches', [DashboardHomeController::class, 'upcommingmatches']);
     });
 
 
