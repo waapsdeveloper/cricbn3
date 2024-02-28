@@ -12,7 +12,7 @@ class MatchDetailController extends Controller
 
     Public function index()
     {
-        $matchdetails = MatchDetail::with('matchh','team1', 'team2')->get();
+        $matchdetails = MatchDetail::with('matchh','matchh.team1', 'matchh.team2')->get();
         return $this->success('Match Detail retrieved successfully', ['data' => $matchdetails]);
     }
 
