@@ -25,8 +25,13 @@ class Matchh extends Model
         'score_board'
     ];
 
-    public function team()
+    public function team1()
     {
-        return $this->belongsTo(Team::class, 'team_id');
+        return $this->belongsTo(Team::class, 'team1_id');
+    }
+
+    public function team2()
+    {
+        return $this->belongsTo(Team::class, 'team2_id');
     }
 }

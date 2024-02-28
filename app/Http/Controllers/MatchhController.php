@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class MatchhController extends Controller
 {
-    public function index()
-    {
-        $matches = Matchh::with('team')->get();
-        return $this->success('Matches retrieved successfully', ['data' => $matches]);
-    }
+    Public function index()
+{
+    $matches = Matchh::with('team1', 'team2')->get();
+    return $this->success('Matches retrieved successfully', ['data' => $matches]);
+}
 
 
 
