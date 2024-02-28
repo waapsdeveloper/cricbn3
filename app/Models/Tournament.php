@@ -17,10 +17,15 @@ class Tournament extends Model
     protected $fillable = [
         'name',
         'abbreviation',
-        'organizer',
+        'organizer_id',
         'prize',
         'start_date',
         'end_date'
     ];
+
+    public function organizer()
+    {
+        return $this->belongsTo(Organizer::class);
+    }
 
 }

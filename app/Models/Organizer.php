@@ -19,8 +19,8 @@ class Organizer extends Model
     ];
 
 
-    // public function players()
-    // {
-    //     return $this->hasMany(Player::class);
-    // }
+    public function tournaments()
+    {
+        return $this->hasMany(Tournament::class);
+    }
 }
