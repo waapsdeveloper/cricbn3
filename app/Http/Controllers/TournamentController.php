@@ -24,7 +24,6 @@ class TournamentController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
             'abbreviation' => 'required|string',
-            'organizer' => 'required|string',
             'prize' => 'required|string',
             'start_date' => 'required|date',
             'end_date' => 'required|date'
@@ -40,7 +39,6 @@ class TournamentController extends Controller
         $tours = Tournament::create([
             'name' => $request->input('name'),
             'abbreviation' => $request->input('abbreviation'),
-            'organizer' => $request->input('organizer'),
             'prize' => $request->input('prize'),
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
@@ -64,7 +62,6 @@ class TournamentController extends Controller
         $validator = Validator::make($data, [
             'name' => 'required|string',
             'abbreviation' => 'required|string',
-            'organizer' => 'required|string',
             'prize' => 'required|string',
             'start_date' => 'required|date',
             'end_date' => 'required|date'
@@ -77,7 +74,6 @@ class TournamentController extends Controller
         $tours->update([
             'name' => $data['name'],
             'abbreviation' => $data['abbreviation'],
-            'organizer' => $data['organizer'],
             'prize' => $data['prize'],
             'start_date' => $data['start_date'],
             'end_date' => $data['end_date'],
