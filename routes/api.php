@@ -19,6 +19,7 @@ use App\Http\Controllers\MatchhController;
 use App\Http\Controllers\MatchDetailController;
 
 
+use App\Http\Controllers\OrganizerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,5 +111,15 @@ Route::group(['prefix' => 'matchdetails'], function () {
     Route::post('/', [MatchDetailController::class, 'store']);
     Route::post('/{id}', [MatchDetailController::class, 'update']);
     Route::delete('/{id}', [MatchDetailController::class, 'destroy']);
+});
+
+
+
+
+Route::group(['prefix' => 'organizers'], function () {
+    Route::get('/', [OrganizerController::class, 'index']);
+    Route::post('/', [OrganizerController::class, 'store']);
+    Route::post('/{id}', [OrganizerController::class, 'update']);
+    Route::delete('/{id}', [OrganizerController::class, 'destroy']);
 });
 
