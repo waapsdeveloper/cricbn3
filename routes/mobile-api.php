@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('dashboard')->group(function () {
 
     Route::prefix('home')->group(function () {
-        Route::get('/matches', 'MobileApi\DashboardHomeController@matches');
+        Route::get('/matches', 'DashboardHomeController@matches');
     });
 
 
