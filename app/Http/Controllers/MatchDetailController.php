@@ -21,7 +21,7 @@ class MatchDetailController extends Controller
     {
         // Validate the request
         $validator = Validator::make($request->all(), [
-            'match_id' => 'required|exists:matchh,id',
+            'match_id' => 'required|exists:matchhs,id',
             'date_time' => 'required|date',
             'toss' => 'required|string',
             'stadium' => 'required|string',
