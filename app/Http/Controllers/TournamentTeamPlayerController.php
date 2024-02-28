@@ -13,8 +13,8 @@ class TournamentTeamPlayerController extends Controller
 
     public function index()
     {
-        $tourteamplayers = TournamentTeamPlayer::with('tournamentTeam', 'tournamentPlayer')->get();
-        return $this->success('Tournament Team and Players retrieved successfully', ['data' => $tourteamplayers]);
+        $tourteamplayers = TournamentTeamPlayer::with('team', 'player')->get();
+        return $this->success('Tournamnent Team and Players retrieved successfully', ['data' => $tourteamplayers]);
     }
 
     public function store(Request $request)

@@ -19,13 +19,13 @@ class TournamentTeamPlayer extends Model
         'tournament_player_id'
     ];
 
-    public function tournamentTeam()
+    public function team()
     {
-        return $this->belongsTo(TournamentTeam::class, 'tournament_team_id');
+        return $this->belongsTo(TournamentTeam::class, 'team_id');
     }
 
-    public function tournamentPlayer()
+    public function player()
     {
-        return $this->belongsTo(tournamentPlayer::class, 'tournament_player_id');
+        return $this->belongsTo(TournamentPlayer::class, 'player_id');
     }
 }
