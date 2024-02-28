@@ -16,6 +16,10 @@ use App\Http\Controllers\TournamentController;
 
 
 use App\Http\Controllers\MatchhController;
+use App\Http\Controllers\MatchDetailController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -99,4 +103,12 @@ Route::group(['prefix' => 'matches'], function () {
     Route::delete('/{id}', [MatchhController::class, 'destroy']);
 });
 
+
+
+Route::group(['prefix' => 'matchdetails'], function () {
+    Route::get('/', [MatchDetailController::class, 'index']);
+    Route::post('/', [MatchDetailController::class, 'store']);
+    Route::post('/{id}', [MatchDetailController::class, 'update']);
+    Route::delete('/{id}', [MatchDetailController::class, 'destroy']);
+});
 
