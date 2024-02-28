@@ -22,9 +22,9 @@ class Tournament extends Model
         'start_date',
         'end_date'
     ];
-    public function tournamentorganizer()
+    public function organizers()
     {
-        return $this->belongsTo(TournamentOrganizer::class, 'tournament_organizer_id');
+        return $this->hasMany(TournamentOrganizer::class);
     }
 
     // public function player()
