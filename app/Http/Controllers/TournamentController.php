@@ -12,7 +12,8 @@ class TournamentController extends Controller
 
     public function index()
     {
-        $tours = Tournament::all();
+        // $tours = Tournament::all();
+        $tours = Tournament::with('tournament', 'organizer')->get();
         return $this->success('Tournaments retrieved successfully', ['data' => $tours]);
     }
 
@@ -22,6 +23,7 @@ class TournamentController extends Controller
     {
         // Validate the request
         $validator = Validator::make($request->all(), [
+            'tournament_organizer_id' =>'required|exists:tournament_organizers,id',
             'name' => 'required|string',
             'abbreviation' => 'required|string',
             'prize' => 'required|string',
@@ -37,6 +39,7 @@ class TournamentController extends Controller
 
 
         $tours = Tournament::create([
+            'tournament_organizer_id' => $request->input('tournament_organizer_id'),
             'name' => $request->input('name'),
             'abbreviation' => $request->input('abbreviation'),
             'prize' => $request->input('prize'),
@@ -60,6 +63,7 @@ class TournamentController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
+            'tournament_organizer_id' =>'required|exists:tournament_organizers,id',
             'name' => 'required|string',
             'abbreviation' => 'required|string',
             'prize' => 'required|string',
@@ -72,6 +76,7 @@ class TournamentController extends Controller
         }
 
         $tours->update([
+            'tournament_organizer_id' => $data['tournament_organizer_id'],
             'name' => $data['name'],
             'abbreviation' => $data['abbreviation'],
             'prize' => $data['prize'],

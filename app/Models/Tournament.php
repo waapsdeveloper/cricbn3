@@ -15,6 +15,7 @@ class Tournament extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'tournament_organizer_id',
         'name',
         'abbreviation',
         'prize',
