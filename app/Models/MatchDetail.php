@@ -30,12 +30,12 @@ class MatchDetail extends Model
 
     public function team1()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team1_id');
     }
 
     public function team2()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team2_id');
     }
 
 }
