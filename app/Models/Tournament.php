@@ -22,5 +22,14 @@ class Tournament extends Model
         'start_date',
         'end_date'
     ];
+    public function tournamentorganizer()
+    {
+        return $this->belongsTo(TournamentOrganizer::class, 'tournament_organizer_id');
+    }
+
+    // public function player()
+    // {
+    //     return $this->belongsTo(Player::class, 'player_id');
+    // }
 
 }

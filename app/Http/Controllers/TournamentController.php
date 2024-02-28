@@ -13,7 +13,7 @@ class TournamentController extends Controller
     public function index()
     {
         // $tours = Tournament::all();
-        $tours = Tournament::with('tournament', 'organizer')->get();
+        $tours = Tournament::with('tournament_organizer')->get();
         return $this->success('Tournaments retrieved successfully', ['data' => $tours]);
     }
 
