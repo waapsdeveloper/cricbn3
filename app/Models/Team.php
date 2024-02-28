@@ -22,5 +22,5 @@ class Team extends Model
         'home_venue',
         'coach'
     ];
-    
+
 }

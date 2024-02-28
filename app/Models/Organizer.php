@@ -18,9 +18,4 @@ class Organizer extends Model
         'name',
     ];
 
-
-    public function tournaments()
-    {
-        return $this->hasMany(Tournament::class);
-    }
 }
