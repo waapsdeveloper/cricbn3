@@ -28,4 +28,14 @@ class MatchDetail extends Model
         return $this->belongsTo(Matchh::class, 'match_id');
     }
 
+    public function team1()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    public function team2()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
 }
