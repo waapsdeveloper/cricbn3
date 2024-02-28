@@ -20,6 +20,7 @@ use App\Http\Controllers\MatchDetailController;
 
 
 use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\TournamentOrganizerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,5 +122,16 @@ Route::group(['prefix' => 'organizers'], function () {
     Route::post('/', [OrganizerController::class, 'store']);
     Route::post('/{id}', [OrganizerController::class, 'update']);
     Route::delete('/{id}', [OrganizerController::class, 'destroy']);
+});
+
+
+
+
+
+Route::group(['prefix' => 'tournament-organizers'], function () {
+    Route::get('/', [TournamentOrganizerController::class, 'index']);
+    Route::post('/', [TournamentOrganizerController::class, 'store']);
+    Route::post('/{id}', [TournamentOrganizerController::class, 'update']);
+    Route::delete('/{id}', [TournamentOrganizerController::class, 'destroy']);
 });
 
