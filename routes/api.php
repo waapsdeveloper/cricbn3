@@ -15,6 +15,7 @@ use App\Http\Controllers\TeamPlayerController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\TournamentPlayerController;
 use App\Http\Controllers\TournamentTeamController;
+use App\Http\Controllers\TournamentTeamPlayerController;
 
 
 /*
@@ -110,3 +111,11 @@ Route::group(['prefix' => 'tournamentteams'], function () {
     Route::delete('/{id}', [TournamentTeamController::class, 'destroy']);
 });
 
+
+
+Route::group(['prefix' => 'tournamentteamplayers'], function () {
+    Route::get('/', [TournamentTeamPlayerController::class, 'index']);
+    Route::post('/', [TournamentTeamPlayerController::class, 'store']);
+    Route::post('/{id}', [TournamentTeamPlayerController::class, 'update']);
+    Route::delete('/{id}', [TournamentTeamPlayerController::class, 'destroy']);
+});
