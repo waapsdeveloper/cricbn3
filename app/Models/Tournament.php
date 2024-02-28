@@ -15,21 +15,11 @@ class Tournament extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'tournament_organizer_id',
         'name',
         'abbreviation',
         'prize',
         'start_date',
         'end_date'
     ];
-    public function organizers()
-    {
-        return $this->hasMany(TournamentOrganizer::class);
-    }
-
-    // public function player()
-    // {
-    //     return $this->belongsTo(Player::class, 'player_id');
-    // }
 
 }
