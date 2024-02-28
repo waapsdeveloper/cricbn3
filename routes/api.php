@@ -13,11 +13,9 @@ use App\Http\Controllers\TeamPlayerController;
 
 
 use App\Http\Controllers\TournamentController;
-use App\Http\Controllers\TournamentPlayerController;
-use App\Http\Controllers\TournamentTeamController;
-use App\Http\Controllers\TournamentTeamPlayerController;
 
 
+use App\Http\Controllers\MatchhController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -94,28 +92,11 @@ Route::group(['prefix' => 'tournaments'], function () {
 
 
 
-
-Route::group(['prefix' => 'tournamentplayers'], function () {
-    Route::get('/', [TournamentPlayerController::class, 'index']);
-    Route::post('/', [TournamentPlayerController::class, 'store']);
-    Route::post('/{id}', [TournamentPlayerController::class, 'update']);
-    Route::delete('/{id}', [TournamentPlayerController::class, 'destroy']);
+Route::group(['prefix' => 'matches'], function () {
+    Route::get('/', [MatchhController::class, 'index']);
+    Route::post('/', [MatchhController::class, 'store']);
+    Route::post('/{id}', [MatchhController::class, 'update']);
+    Route::delete('/{id}', [MatchhController::class, 'destroy']);
 });
 
 
-
-Route::group(['prefix' => 'tournamentteams'], function () {
-    Route::get('/', [TournamentTeamController::class, 'index']);
-    Route::post('/', [TournamentTeamController::class, 'store']);
-    Route::post('/{id}', [TournamentTeamController::class, 'update']);
-    Route::delete('/{id}', [TournamentTeamController::class, 'destroy']);
-});
-
-
-
-Route::group(['prefix' => 'tournamentteamplayers'], function () {
-    Route::get('/', [TournamentTeamPlayerController::class, 'index']);
-    Route::post('/', [TournamentTeamPlayerController::class, 'store']);
-    Route::post('/{id}', [TournamentTeamPlayerController::class, 'update']);
-    Route::delete('/{id}', [TournamentTeamPlayerController::class, 'destroy']);
-});
