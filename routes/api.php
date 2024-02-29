@@ -25,6 +25,7 @@ use App\Http\Controllers\TournamentOrganizerController;
 
 
 use App\Http\Controllers\OngoingSeriesController;
+use App\Http\Controllers\OngoingSeriesDetailController;
 
 
 
@@ -150,4 +151,14 @@ Route::group(['prefix' => 'ongoing-series'], function () {
     Route::post('/', [OngoingSeriesController::class, 'store']);
     Route::post('/{id}', [OngoingSeriesController::class, 'update']);
     Route::delete('/{id}', [OngoingSeriesController::class, 'destroy']);
+});
+
+
+
+
+Route::group(['prefix' => 'ongoing-series-detail'], function () {
+    Route::get('/', [OngoingSeriesDetailController::class, 'index']);
+    Route::post('/', [OngoingSeriesDetailController::class, 'store']);
+    Route::post('/{id}', [OngoingSeriesDetailController::class, 'update']);
+    Route::delete('/{id}', [OngoingSeriesDetailController::class, 'destroy']);
 });
