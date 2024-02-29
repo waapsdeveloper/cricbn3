@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Matchh;
 use App\Models\Flag;
+use App\Models\OngoingSeries;
 
 class DashboardHomeController extends Controller
 {
@@ -28,4 +29,15 @@ class DashboardHomeController extends Controller
 
     return response()->json(['match' => $matches]);
 }
+
+
+
+
+
+public function ongoingseries(Request $request)
+    {
+        $series = OngoingSeries::all();
+
+        return response()->json(['series' => $series]);
+    }
 }
