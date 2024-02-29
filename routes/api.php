@@ -32,6 +32,9 @@ use App\Http\Controllers\OngoingSeriesDetailController;
 use App\Http\Controllers\TrendingNewController;
 
 
+use App\Http\Controllers\ContactUsController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -177,4 +180,13 @@ Route::group(['prefix' => 'news'], function () {
     Route::post('/', [TrendingNewController::class, 'store']);
     Route::post('/{id}', [TrendingNewController::class, 'update']);
     Route::delete('/{id}', [TrendingNewController::class, 'destroy']);
+});
+
+
+
+Route::group(['prefix' => 'contact-us'], function () {
+    Route::get('/', [ContactUsController::class, 'index']);
+    Route::post('/', [ContactUsController::class, 'store']);
+    Route::post('/{id}', [ContactUsController::class, 'update']);
+    Route::delete('/{id}', [ContactUsController::class, 'destroy']);
 });
