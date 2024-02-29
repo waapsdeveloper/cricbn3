@@ -76,4 +76,11 @@ public function ongoingseries(Request $request)
         $news = TrendingNew::all();
         return $this->success('News retrieved successfully', ['data' => $news]);
     }
+
+
+    public function aboutus()
+    {
+        $about = AboutUs::all();
+        return $this->success('about us retrieved successfully', ['data' => $about]);
+    }
 }
