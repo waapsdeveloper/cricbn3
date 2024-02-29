@@ -26,7 +26,7 @@ class OngoingSeriesDetail extends Model
 
     public function ongoingseries()
     {
-        return $this->belongsTo(ongoingseries::class, 'ongoing_series_id');
+        return $this->belongsTo(OngoingSeries::class, 'ongoing_series_id');
     }
 
 
