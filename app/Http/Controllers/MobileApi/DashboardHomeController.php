@@ -12,6 +12,7 @@ use App\Models\OngoingSeriesDetail;
 use App\Models\TrendingNew;
 use App\Models\AboutUs;
 use App\Models\TermCondition;
+use App\Models\PrivacyPolicy;
 
 class DashboardHomeController extends Controller
 {
@@ -91,5 +92,11 @@ public function ongoingseries(Request $request)
     {
         $terms = TermCondition::all();
         return $this->success('Terms And Condition retrieved successfully', ['data' => $terms]);
+    }
+
+    public function privacy()
+    {
+        $privacy = PrivacyPolicy::all();
+        return $this->success('Privacy Policies retrieved successfully', ['data' => $privacy]);
     }
 }

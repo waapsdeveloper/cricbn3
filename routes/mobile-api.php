@@ -19,6 +19,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/news', [DashboardHomeController::class, 'trendingnew']);
         Route::get('/about-us', [DashboardHomeController::class, 'aboutus']);
         Route::get('/term-condition', [DashboardHomeController::class, 'terms']);
+        Route::get('/privacy-policy', [DashboardHomeController::class, 'privacy']);
     });
 
 
