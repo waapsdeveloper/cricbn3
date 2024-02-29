@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Matchh;
 use App\Models\Flag;
 use App\Models\OngoingSeries;
+use App\Models\OngoingSeriesDetail;
 
 class DashboardHomeController extends Controller
 {
@@ -39,5 +40,13 @@ public function ongoingseries(Request $request)
         $series = OngoingSeries::all();
 
         return response()->json(['series' => $series]);
+    }
+
+
+
+    Public function ongoingseriesdetail()
+    {
+        $seriesdetail = OngoingSeriesDetail::with('ongoingseries')->get();
+        return $this->success('Series Detail retrieved successfully', ['data' => $seriesdetail]);
     }
 }
