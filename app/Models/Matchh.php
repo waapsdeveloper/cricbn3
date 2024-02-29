@@ -26,6 +26,8 @@ class Matchh extends Model
         'location',
         'score_board',
         'date',
+        'player_of_the_match_image',
+        'player_id',
     ];
 
     public function team1()
@@ -47,6 +49,12 @@ class Matchh extends Model
     public function flag2()
     {
         return $this->belongsTo(Flag::class, 'flag2_id');
+    }
+
+
+    public function player()
+    {
+        return $this->belongsTo(Player::class, 'player_id');
     }
 
 }

@@ -11,7 +11,7 @@ class MatchhController extends Controller
 {
     Public function index()
 {
-    $matches = Matchh::with(['team1', 'team2', 'flag1', 'flag2'])->get();
+    $matches = Matchh::with(['team1', 'team2', 'flag1', 'flag2','player'])->get();
     return $this->success('Matches retrieved successfully', ['data' => $matches]);
 }
 
@@ -27,7 +27,10 @@ class MatchhController extends Controller
             'status' => 'required|string',
             'match_type' => 'required|string',
             'location' => 'required|string',
-            'score_board' => 'required|string'
+            'score_board' => 'required|string',
+            'date' => 'required|date',
+            'player_of_the_match_image' => 'string',
+            'player_id' => 'integer'
         ]);
 
         // If validation fails, return failure response
@@ -44,6 +47,8 @@ class MatchhController extends Controller
             'match_type' => $request->input('match_type'),
             'location' => $request->input('location'),
             'score_board' => $request->input('score_board'),
+            'player_of_the_match_image' => $request->input('player_of_the_match_image'),
+            'player_id' => $request->input('player_id'),
         ]);
 
         // Return success response
@@ -68,7 +73,9 @@ class MatchhController extends Controller
             'status' => 'required|string',
             'match_type' => 'required|string',
             'location' => 'required|string',
-            'score_board' => 'required|string'
+            'score_board' => 'required|string',
+            'player_of_the_match_image' => 'string',
+            'player_id' => 'integer'
         ]);
 
         if ($validator->fails()) {
@@ -82,7 +89,9 @@ class MatchhController extends Controller
             'status' => $data['status'],
             'match_type' => $data['match_type'],
             'location' => $data['location'],
-            'score_board' => $data['score_board']
+            'score_board' => $data['score_board'],
+            'player_of_the_match_image' => $data['player_of_the_match_image'],
+            'player_id' => $data['player_id']
         ]);
 
         return $this->success('Team and Player updated successfully', ['data' => $matches]);
