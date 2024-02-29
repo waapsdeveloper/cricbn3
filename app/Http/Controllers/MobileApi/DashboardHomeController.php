@@ -10,6 +10,7 @@ use App\Models\Flag;
 use App\Models\OngoingSeries;
 use App\Models\OngoingSeriesDetail;
 use App\Models\TrendingNew;
+use App\Models\AboutUs;
 
 class DashboardHomeController extends Controller
 {
