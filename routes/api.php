@@ -29,6 +29,10 @@ use App\Http\Controllers\OngoingSeriesDetailController;
 
 
 
+use App\Http\Controllers\TrendingNewController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -161,4 +165,16 @@ Route::group(['prefix' => 'ongoing-series-detail'], function () {
     Route::post('/', [OngoingSeriesDetailController::class, 'store']);
     Route::post('/{id}', [OngoingSeriesDetailController::class, 'update']);
     Route::delete('/{id}', [OngoingSeriesDetailController::class, 'destroy']);
+});
+
+
+
+
+
+
+Route::group(['prefix' => 'news'], function () {
+    Route::get('/', [TrendingNewController::class, 'index']);
+    Route::post('/', [TrendingNewController::class, 'store']);
+    Route::post('/{id}', [TrendingNewController::class, 'update']);
+    Route::delete('/{id}', [TrendingNewController::class, 'destroy']);
 });
