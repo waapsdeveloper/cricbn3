@@ -22,6 +22,12 @@ use App\Http\Controllers\MatchDetailController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\TournamentOrganizerController;
 
+
+
+use App\Http\Controllers\OngoingSeriesController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -135,3 +141,13 @@ Route::group(['prefix' => 'tournament-organizers'], function () {
     Route::delete('/{id}', [TournamentOrganizerController::class, 'destroy']);
 });
 
+
+
+
+
+Route::group(['prefix' => 'ongoing-series'], function () {
+    Route::get('/', [OngoingSeriesController::class, 'index']);
+    Route::post('/', [OngoingSeriesController::class, 'store']);
+    Route::post('/{id}', [OngoingSeriesController::class, 'update']);
+    Route::delete('/{id}', [OngoingSeriesController::class, 'destroy']);
+});
