@@ -34,6 +34,24 @@ class DashboardHomeController extends Controller
 
 
 
+public function recentmatches(Request $request)
+{
+    $currentDate = Carbon::now()->toDateString();
+
+    // Subtracting 1 month from the current date
+    $oneMonthAgo = Carbon::now()->subMonth()->toDateString();
+
+    $matches = Matchh::with('team1', 'team2', 'flag1', 'flag2', 'player')
+        ->whereDate('date', '>', $oneMonthAgo) // Matches from previous month
+        ->whereDate('date', '<', $currentDate) // Matches before today
+        ->get();
+
+    return response()->json(['match' => $matches]);
+}
+
+
+
+
 
 
 public function ongoingseries(Request $request)

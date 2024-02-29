@@ -13,6 +13,7 @@ Route::prefix('dashboard')->group(function () {
     Route::prefix('home')->group(function () {
         Route::get('/matches', [DashboardHomeController::class, 'matches']);
         Route::get('/upcommingmatches', [DashboardHomeController::class, 'upcommingmatches']);
+        Route::get('/recentmatches', [DashboardHomeController::class, 'recentmatches']);
         Route::get('/ongoingseries', [DashboardHomeController::class, 'ongoingseries']);
         Route::get('/ongoingseriesdetail', [DashboardHomeController::class, 'ongoingseriesdetail']);
         Route::get('/news', [DashboardHomeController::class, 'trendingnew']);
