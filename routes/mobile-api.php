@@ -18,6 +18,7 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/ongoingseriesdetail', [DashboardHomeController::class, 'ongoingseriesdetail']);
         Route::get('/news', [DashboardHomeController::class, 'trendingnew']);
         Route::get('/about-us', [DashboardHomeController::class, 'aboutus']);
+        Route::get('/term-condition', [DashboardHomeController::class, 'terms']);
     });
 
 

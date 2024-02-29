@@ -11,6 +11,7 @@ use App\Models\OngoingSeries;
 use App\Models\OngoingSeriesDetail;
 use App\Models\TrendingNew;
 use App\Models\AboutUs;
+use App\Models\TermCondition;
 
 class DashboardHomeController extends Controller
 {
@@ -83,5 +84,12 @@ public function ongoingseries(Request $request)
     {
         $about = AboutUs::all();
         return $this->success('about us retrieved successfully', ['data' => $about]);
+    }
+
+
+    public function terms()
+    {
+        $terms = TermCondition::all();
+        return $this->success('Terms And Condition retrieved successfully', ['data' => $terms]);
     }
 }
