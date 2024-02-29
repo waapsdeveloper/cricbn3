@@ -9,6 +9,7 @@ use App\Models\Matchh;
 use App\Models\Flag;
 use App\Models\OngoingSeries;
 use App\Models\OngoingSeriesDetail;
+use App\Models\TrendingNew;
 
 class DashboardHomeController extends Controller
 {
@@ -48,5 +49,13 @@ public function ongoingseries(Request $request)
     {
         $seriesdetail = OngoingSeriesDetail::with('ongoingseries')->get();
         return $this->success('Series Detail retrieved successfully', ['data' => $seriesdetail]);
+    }
+
+
+
+    public function trendingnew()
+    {
+        $news = TrendingNew::all();
+        return $this->success('News retrieved successfully', ['data' => $news]);
     }
 }
