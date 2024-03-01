@@ -11,6 +11,7 @@ class ContactUsController extends Controller
 {
 
 
+
     public function index()
     {
         $contacts = ContactUs::all();

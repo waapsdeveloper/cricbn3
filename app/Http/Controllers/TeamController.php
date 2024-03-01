@@ -24,9 +24,9 @@ class TeamController extends Controller
             'name' => 'required|string',
             'logo' => 'required|string',
             'location' => 'required|string',
-            'established_date' => 'required|date',
-            'home_venue' => 'required|string',
-            'coach' => 'required|string',
+            'established_date' => 'date',
+            'home_venue' => 'string',
+            'coach' => 'string',
         ]);
 
         // If validation fails, return failure response

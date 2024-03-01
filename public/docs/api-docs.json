@@ -1,0 +1,326 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel",
+        "description": "Joy VoyagerApi module adds REST Api end points to Voyager with Passport and Swagger support https://github.com/rxcod9/joy-voyager-api.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://my-default-host.com",
+            "description": "Primary API Server"
+        },
+        {
+            "url": "http://my-default-host.com",
+            "description": "Another API Server"
+        }
+    ],
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Login",
+                "operationId": "login",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "admin@admin.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password"
+                                    },
+                                    "remember_me": {
+                                        "type": "boolean",
+                                        "example": "false"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/profile": {
+            "get": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Profile",
+                "operationId": "user",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "$ref": "#/components/schemas/User"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/refreshToken": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Refresh Token",
+                "operationId": "refreshToken",
+                "requestBody": {
+                    "description": "Refresh Token",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "refresh_token"
+                                ],
+                                "properties": {
+                                    "refresh_token": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Register",
+                "operationId": "register",
+                "requestBody": {
+                    "description": "User Register",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "User 001"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user001@user.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Auth": {},
+            "User": {},
+            "Links": {
+                "properties": {
+                    "first": {
+                        "description": "First page api link",
+                        "type": "string",
+                        "example": "http://localhost:8000/api/users?page=1"
+                    },
+                    "last": {
+                        "description": "Last page api link",
+                        "type": "string",
+                        "example": "http://localhost:8000/api/users?page=10"
+                    },
+                    "prev": {
+                        "description": "revious page api link",
+                        "type": "string",
+                        "example": null
+                    },
+                    "next": {
+                        "description": "Next page api link",
+                        "type": "string",
+                        "example": "http://localhost:8000/api/users?page=2"
+                    }
+                },
+                "type": "object"
+            },
+            "Meta": {
+                "properties": {
+                    "current_page": {
+                        "description": "Current page",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "from": {
+                        "description": "From Offset",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "last_page": {
+                        "description": "Last page",
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "path": {
+                        "description": "Current api path",
+                        "type": "string",
+                        "example": "http://localhost:8000/api/users?page=2"
+                    },
+                    "per_page": {
+                        "description": "Per page length",
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "to": {
+                        "description": "To Offset",
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "total": {
+                        "description": "Total items",
+                        "type": "integer",
+                        "example": 100
+                    },
+                    "showCheckboxColumn": {
+                        "description": "True if user has bulk delete/action persmission",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "recordsTotal": {
+                        "description": "Total items",
+                        "type": "integer",
+                        "example": 100
+                    },
+                    "recordsFiltered": {
+                        "description": "Total filtered items",
+                        "type": "integer",
+                        "example": 100
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "token": {
+                "type": "apiKey",
+                "description": "Bearer token",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
